@@ -21,6 +21,7 @@ import com.example.tt_app.R;
 import com.example.tt_app.View.DetailNguoithue;
 import com.example.tt_app.View.DetailPhong;
 import com.example.tt_app.View.dbmanager;
+import com.example.tt_app.model.DataClass;
 import com.example.tt_app.model.DataNguoithue;
 import com.example.tt_app.model.DataPhong;
 
@@ -93,7 +94,10 @@ public class AdapterPhong extends RecyclerView.Adapter<AdapterPhong.viewholder> 
         }
         return 0;
     }
-
+    public void searchDataList(ArrayList<DataPhong> searchList){
+        dataholder = searchList;
+        notifyDataSetChanged();
+    }
     public class viewholder extends RecyclerView.ViewHolder {
         TextView recPhong,tvSonguoi;
         CardView recCard;

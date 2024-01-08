@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ import com.example.tt_app.View.Login;
 import com.example.tt_app.View.NguoiThue;
 import com.example.tt_app.View.Phong;
 import com.example.tt_app.View.Setting;
+import com.example.tt_app.View.dbmanager;
 
 
 import kotlin.Unit;
@@ -57,10 +59,23 @@ public class MainActivity extends AppCompatActivity {
         OpenPhong();
 
         OpenNguoithue();
+        //hien thi ten user
+       readuser();
+
         //ấn thanh actionBar
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
+    }
+
+    private void readuser() {
+        Cursor cursor = new dbmanager(getApplicationContext()).readalldatausers();
+        if (cursor.moveToFirst()) {
+            do {
+                String hovaten = cursor.getString(cursor.getColumnIndex("hovaten"));
+                textView.setText(hovaten);
+            } while (cursor.moveToNext());
+        }
     }
 
     private void OpenPhong() {
@@ -333,7 +348,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void anhxaid() {
         textView = findViewById(R.id.user);
-
 
 //        bottomNavigation = findViewById(R.id.bottomNavigation);
 //        setting = findViewById(R.id.setting);

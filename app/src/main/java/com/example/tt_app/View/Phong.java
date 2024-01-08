@@ -2,6 +2,7 @@ package com.example.tt_app.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import com.example.tt_app.Adapter.AdapterPhong;
 import com.example.tt_app.MainActivity;
 import com.example.tt_app.R;
+import com.example.tt_app.model.DataNguoithue;
 import com.example.tt_app.model.DataPhong;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -25,6 +27,7 @@ public class    Phong extends AppCompatActivity {
     ArrayList<DataPhong> dataholder;
     AdapterPhong myadapter;
     RecyclerView recyclerViewPhong;
+    SearchView searchPhong;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,9 +73,34 @@ public class    Phong extends AppCompatActivity {
         recyclerViewPhong.setAdapter(myadapter);
         myadapter.notifyDataSetChanged();
 
+        searchPhong.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
+
     }
 
+
+    public void searchList(String text){
+        ArrayList<DataPhong> searchList = new ArrayList<>();
+        for (DataPhong dataPhong: dataholder){
+            if (dataPhong.getPhong().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(dataPhong);
+            }
+        }
+        myadapter.searchDataList(searchList);
+    }
     private void anhxaid() {
+        searchPhong = findViewById(R.id.searchPhong);
         PhongBack = findViewById( R.id.PhongBack);
         fab_phong = findViewById(R.id.fab_phong);
         dichvuBack= findViewById(R.id.dichvuBack);

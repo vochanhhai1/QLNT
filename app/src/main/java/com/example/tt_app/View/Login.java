@@ -46,8 +46,8 @@ public class Login extends AppCompatActivity {
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
 
                 if (!validateEmail()| !validatePassword()) {
                     return;
@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
                         Intent myintent  = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(myintent);
                     }else{
-                        Toast.makeText(Login.this, "Mật khẩu không hợp lệ!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login.this, "Tài khoản hoặc mật khẩu không hợp lệ!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

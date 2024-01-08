@@ -3,6 +3,7 @@ package com.example.tt_app.NguoiThueFragment;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,9 +58,33 @@ public class ChuaCoPhong extends Fragment {
 
         adapter.notifyDataSetChanged();
 
+        //search
+        search_nguoithue.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
+
         return view;
     }
 
+    public void searchList(String text){
+        ArrayList<DataNguoithue> searchList = new ArrayList<>();
+        for (DataNguoithue dataNguoithue: dataNguoithues){
+            if (dataNguoithue.getHovaten().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(dataNguoithue);
+            }
+        }
+        adapter.searchDataList(searchList);
+    }
     private void anhxaid(View view) {
         search_nguoithue = view.findViewById(R.id.search_nguoithue);
         recyclerView_nguoithue = view.findViewById(R.id.recyclerView_nguoithue);

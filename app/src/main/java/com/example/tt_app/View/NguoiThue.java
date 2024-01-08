@@ -55,20 +55,6 @@ public class NguoiThue extends AppCompatActivity {
             }
         });
 
-//        //search
-//        search_nguoithue.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                searchList(newText);
-//                return true;
-//            }
-//        });
-
 
         NguoithueBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
@@ -42,17 +43,18 @@ public class Signup extends AppCompatActivity {
         binding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String hovaten = binding.signupHoten.getText().toString();
-                int sodienthoai = Integer.parseInt(binding.signupSdt.getText().toString());
+
 //                String email = binding.signupEmail.getText().toString();
                // String password = binding.signupPassword.getText().toString();
                 String confirmPassword = binding.signupConfirm.getText().toString();
 
-                if (!validateEmail() | !validatePassword()) {
+                if (!validateEmail() | !validatePassword()| !validateUsername() | !validatePhone()) {
                     return;
                 }
                 String inputemail =  binding.signupEmail.getText().toString();
                 String inputpassword = binding.signupPassword.getText().toString();
+                String inputhovaten = binding.signupHoten.getText().toString();
+                int inputsodienthoai = Integer.parseInt(binding.signupSdt.getText().toString());
                 if(inputemail.equals("")||inputpassword.equals("")||confirmPassword.equals(""))
                     Toast.makeText(Signup.this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 else{
@@ -60,7 +62,7 @@ public class Signup extends AppCompatActivity {
                         Boolean checkUserEmail = databaseHelper.checkEmail(inputemail);
 
                         if(checkUserEmail == false){
-                            Boolean insert = databaseHelper.insertData_user(hovaten,inputemail,sodienthoai, inputpassword);
+                            Boolean insert = databaseHelper.insertData_user(inputhovaten,inputemail,inputsodienthoai, inputpassword);
 
                             if(insert == true){
                                 Toast.makeText(Signup.this, "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
@@ -89,8 +91,41 @@ public class Signup extends AppCompatActivity {
         });
 
     }
+    public boolean validatePhone() {
+        String validatePhone = binding.signupSdt.getText().toString().trim();
 
+        if (validatePhone.isEmpty()) {
+            binding.signupSdt.setError("Trường không thể trống");
+            return false;
+        } else if (validatePhone.length() != 10) {
+            binding.signupSdt.setError("Số điện thoại phải có 10 số");
+            return false;
+        } else if (!TextUtils.isDigitsOnly(validatePhone)) {
+            binding.signupSdt.setError("Số điện thoại chỉ được chứa các chữ số");
+            return false;
+        } else {
+            binding.signupSdt.setError(null);
+            return true;
+        }
+    }
 
+    private boolean validateUsername() {
+        String usernameInput = binding.signupHoten.getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            binding.signupHoten.setError("Trường không thể trống\n");
+            return false;
+        } else if (usernameInput.length() > 15) {
+            binding.signupHoten.setError("Tên người dùng quá dài");
+            return false;
+        }else if (usernameInput.matches(".*\\d+.*")) {
+            binding.signupHoten.setError("Tên người dùng không thể chứa số");
+            return false;
+        } else {
+            binding.signupHoten.setError(null);
+            return true;
+        }
+    }
     public  boolean validateEmail()
     {
         String validateemail = binding.signupEmail.getText().toString().trim();

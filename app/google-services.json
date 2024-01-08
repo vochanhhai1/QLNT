@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "881666360955",
+    "project_id": "thong-tin-dang-nhap",
+    "storage_bucket": "thong-tin-dang-nhap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881666360955:android:83fdf491036be11c2544de",
+        "android_client_info": {
+          "package_name": "com.example.tt_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881666360955-49ktlj1irnvi4nr0sma9etm2e96kelh6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX8PxBOjOqxpR1fI-2Q0sWUOQhF7llKCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881666360955-49ktlj1irnvi4nr0sma9etm2e96kelh6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tt_app.QLDichvu.DichVu;
+import com.example.tt_app.QLHoadon.HoaDon;
 import com.example.tt_app.QLHopdong.Hopdong;
 import com.example.tt_app.QLNguoithue.NguoiThue;
 import com.example.tt_app.QLPhong.Phong;
@@ -94,25 +95,27 @@ public class MainActivity extends AppCompatActivity {
         rlHoadon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Xác nhận thoát");
-                builder.setIcon(R.drawable.baseline_info_24);
-                builder.setMessage("Tính năng hóa đơn chưa được ra mắt!!");
-
-                builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                AlertDialog dialog =builder.create();
-                dialog.show();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                builder.setTitle("Xác nhận thoát");
+//                builder.setIcon(R.drawable.baseline_info_24);
+//                builder.setMessage("Tính năng hóa đơn chưa được ra mắt!!");
+//
+//                builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                });
+//                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//                AlertDialog dialog =builder.create();
+//                dialog.show();
+                Intent hoadon = new Intent(getApplicationContext(), HoaDon.class);
+                startActivity(hoadon);
             }
     });
 

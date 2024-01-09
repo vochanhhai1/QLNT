@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.tt_app.MainActivity;
 import com.example.tt_app.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,6 +34,13 @@ public class HoaDon extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent  = new Intent(getApplicationContext(), Laphoadon.class);
+                startActivity(intent);
+            }
+        });
+        HoadonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });

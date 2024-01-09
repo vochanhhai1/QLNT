@@ -24,7 +24,7 @@
         android:theme="@style/Theme.TT_APP"
         tools:targetApi="31">
         <activity
-            android:name=".View.Load"
+            android:name=".QLHoadon.HoaDon"
             android:exported="false" />
         <activity
             android:name=".QLHoadon.Laphoadon"
@@ -90,7 +90,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".QLHoadon.HoaDon"
+            android:name=".View.Load"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

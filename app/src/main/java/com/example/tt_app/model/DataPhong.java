@@ -5,10 +5,10 @@ import java.io.Serializable;
 public class DataPhong implements Serializable {
     int maphong;
     String phong;
-    int chiphithue;
+    Double chiphithue;
     int dientich;
     int songuoithue;
-    int tiencoc;
+    Double tiencoc;
     String doituong;
     String anhphong;
     int giadien;
@@ -16,7 +16,7 @@ public class DataPhong implements Serializable {
     String mota;
     String lydo;
 
-    public DataPhong(int maphong, String phong, int chiphithue, int dientich, int songuoithue, int tiencoc, String doituong, String anhphong, int giadien, int gianuoc, String mota, String lydo) {
+    public DataPhong(int maphong, String phong, Double chiphithue, int dientich, int songuoithue, Double tiencoc, String doituong, String anhphong, int giadien, int gianuoc, String mota, String lydo) {
         this.maphong = maphong;
         this.phong = phong;
         this.chiphithue = chiphithue;
@@ -47,11 +47,11 @@ public class DataPhong implements Serializable {
         this.phong = phong;
     }
 
-    public int getChiphithue() {
+    public Double getChiphithue() {
         return chiphithue;
     }
 
-    public void setChiphithue(int chiphithue) {
+    public void setChiphithue(Double chiphithue) {
         this.chiphithue = chiphithue;
     }
 
@@ -71,11 +71,11 @@ public class DataPhong implements Serializable {
         this.songuoithue = songuoithue;
     }
 
-    public int getTiencoc() {
+    public Double getTiencoc() {
         return tiencoc;
     }
 
-    public void setTiencoc(int tiencoc) {
+    public void setTiencoc(Double tiencoc) {
         this.tiencoc = tiencoc;
     }
 

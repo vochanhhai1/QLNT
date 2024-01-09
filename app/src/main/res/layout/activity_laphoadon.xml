@@ -235,6 +235,8 @@
                 </LinearLayout>
 
                 <androidx.cardview.widget.CardView
+                    android:visibility="gone"
+                    android:id="@+id/cvHopdong"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -270,6 +272,7 @@
                             android:textSize="12sp" />
 
                         <TextView
+                            android:id="@+id/tvTiencoc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -291,110 +294,120 @@
                     android:textColor="@color/white"
                     android:textSize="20sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/khoangthoigian"
-                    android:textColor="@color/black" />
-
                 <LinearLayout
+                    android:id="@+id/lltienphong"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/edittext_background"
-                            android:hint="@string/ngay"
-                            android:inputType="date"
-                            android:paddingTop="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingBottom="10dp" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/baseline_calendar_month_24" />
-
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="48dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/edittext_background"
-                            android:hint="@string/ngay"
-                            android:inputType="date"
-                            android:paddingTop="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingBottom="10dp" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerInParent="true"
-                            android:layout_marginEnd="20dp"
-                            android:src="@drawable/baseline_calendar_month_24" />
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                    android:orientation="vertical">
                     <TextView
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:text="@string/tienphong"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/khoangthoigian"
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:layout_width="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:text="@string/total"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/luuy"
-                    android:textColor="@color/red"
-                    android:textSize="10sp" />
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/edittext_background"
+                                android:hint="@string/ngay"
+                                android:inputType="date"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="20dp"
+                                android:src="@drawable/baseline_calendar_month_24" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/edittext_background"
+                                android:hint="@string/ngay"
+                                android:inputType="date"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="10dp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_marginEnd="20dp"
+                                android:src="@drawable/baseline_calendar_month_24" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="@string/tienphong"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/tvGiaphong"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="10dp"
+                            android:text="@string/total"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/luuy"
+                        android:textColor="@color/red"
+                        android:textSize="10sp" />
+
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -405,7 +418,12 @@
                     android:text="@string/dichvu"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-
+            <LinearLayout
+                android:id="@+id/lldichvu"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -422,7 +440,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/chkSelected"
+                        android:id="@+id/chkSelectedNuoc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -433,6 +451,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/tvGianuoc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -462,6 +481,7 @@
                             android:textColor="@color/black" />
 
                         <EditText
+                            android:id="@+id/edtNuocsocu"
                             android:layout_width="150dp"
                             android:layout_height="48dp"
                             android:layout_marginStart="10dp"
@@ -489,6 +509,7 @@
                             android:textColor="@color/green" />
 
                         <EditText
+                            android:id="@+id/edtNuocsomoi"
                             android:layout_width="150dp"
                             android:layout_height="48dp"
                             android:layout_marginStart="10dp"
@@ -517,6 +538,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/TotalNuoc"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -539,6 +561,7 @@
                     android:orientation="horizontal">
 
                     <CheckBox
+                        android:id="@+id/chkSelectedDien"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -549,6 +572,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/tvGiadien"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
@@ -578,6 +602,7 @@
                             android:textColor="@color/black" />
 
                         <EditText
+                            android:id="@+id/editDiensocu"
                             android:layout_width="150dp"
                             android:layout_height="48dp"
                             android:layout_marginStart="10dp"
@@ -605,6 +630,7 @@
                             android:textColor="@color/green" />
 
                         <EditText
+                            android:id="@+id/edtDiensomoi"
                             android:layout_width="150dp"
                             android:layout_height="48dp"
                             android:layout_marginStart="10dp"
@@ -633,6 +659,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/totalDien"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -642,6 +669,9 @@
                         android:textColor="@color/black"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+
+            </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
@@ -672,6 +702,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/tvttTienphong"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -696,6 +727,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/tvttDichvu"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -720,6 +752,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/tvttTotal"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -772,6 +805,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvttThanhtien"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

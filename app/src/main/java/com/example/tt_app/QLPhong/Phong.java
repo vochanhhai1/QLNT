@@ -65,7 +65,7 @@ public class    Phong extends AppCompatActivity {
 
         while (cursor.moveToNext())
         {
-            DataPhong obj = new DataPhong(cursor.getInt(0),cursor.getString(1),cursor.getInt(2),cursor.getInt(3),cursor.getInt(4),cursor.getInt(5), cursor.getString(6),cursor.getString(7),cursor.getInt(8),
+            DataPhong obj = new DataPhong(cursor.getInt(0),cursor.getString(1),cursor.getDouble(2),cursor.getInt(3),cursor.getInt(4),cursor.getDouble(5), cursor.getString(6),cursor.getString(7),cursor.getInt(8),
                     cursor.getInt(9),cursor.getString(10),cursor.getString(11));
             dataholder.add(obj);
         }

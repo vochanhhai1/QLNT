@@ -51,6 +51,7 @@ public class ChonphongAdapter extends RecyclerView.Adapter<ChonphongAdapter.view
 
     private void onClickGoToDetailPhong(DataPhong dataPhong) {
         Intent intent = new Intent(context, Laphoadon.class);
+
         DataPhong obj = new DataPhong(dataPhong.getMaphong(), dataPhong.getPhong(), dataPhong.getChiphithue(), dataPhong.getDientich(), dataPhong.getSonguoithue(), dataPhong.getTiencoc()
                 , dataPhong.getDoituong(), dataPhong.getAnhphong(), dataPhong.getGiadien(),dataPhong.getGianuoc(), dataPhong.getMota(), dataPhong.getLydo());
         Bundle bundle = new Bundle();
@@ -66,7 +67,6 @@ public class ChonphongAdapter extends RecyclerView.Adapter<ChonphongAdapter.view
     public class viewholder extends RecyclerView.ViewHolder {
         TextView cpTenphong;
         CardView cvItem;
-
         public viewholder(@NonNull View itemView) {
             super(itemView);
             cpTenphong= itemView.findViewById(R.id.cpTenphong);

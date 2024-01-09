@@ -175,9 +175,9 @@ public class UpdatePhong extends AppCompatActivity {
                                 RadioButton radioButton = findViewById(selectedId);
                                 selection = radioButton.getText().toString();
                             }
-                            db.updateDataPhong(new DataPhong(maphong,sophong,  Integer.valueOf(String.valueOf(updateChiphi.getEditText().getText())),
+                            db.updateDataPhong(new DataPhong(maphong,sophong,  Double.valueOf(String.valueOf(updateChiphi.getEditText().getText())),
                                     Integer.valueOf(String.valueOf(updateDientich.getEditText().getText())),Integer.valueOf(String.valueOf(updateGioihan.getEditText().getText())),
-                                    Integer.valueOf(String.valueOf(updateTiencoc.getEditText().getText())), selection, imagePaths,
+                                    Double.valueOf(String.valueOf(updateTiencoc.getEditText().getText())), selection, imagePaths,
                                     Integer.valueOf(datanuoc),Integer.valueOf(datadien),updateMota.getText().toString(), updateLydo.getText().toString()));
                     }
                 });

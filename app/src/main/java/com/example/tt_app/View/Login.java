@@ -8,11 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.tt_app.Database.dbmanager;
 import com.example.tt_app.MainActivity;
-import com.example.tt_app.R;
 import com.example.tt_app.databinding.ActivityLoginBinding;
 
 import java.util.regex.Pattern;

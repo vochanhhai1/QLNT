@@ -5,7 +5,7 @@
     android:id="@+id/dddd"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailPhongFragment.ThongTin">
+    tools:context=".QLPhong.DetailPhongFragment.ThongTin">
 
 
     <ScrollView

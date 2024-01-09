@@ -1,5 +1,38 @@
 <resources>
     <string name="app_name">TT_APP</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--activity lập hóa đơn-->
+
+    <string name="description">Trở về Hóa đơn</string>
+    <string name="ghichu">Ghi chú</string>
+    <string name="price">0</string>
+    <string name="total">0 đ</string>
+    <string name="thanhtoan">Thanh toán</string>
+    <string name="giamgia">Giảm giá</string>
+    <string name="tong">Tổng</string>
+    <string name="dichvu">Dịch vụ</string>
+    <string name="tienphong">Tiền phòng</string>
+    <string name="tonghop">Tổng hợp</string>
+    <string name="thanhtien">Thành tiền</string>
+    <string name="chisocu">Chỉ số cũ</string>
+    <string name="chisomoi">Chỉ số mới</string>
+    <string name="dien">Điện</string>
+    <string name="giadien">3.500 đ/kwh</string>
+    <string name="nuoc">Nước</string>
+    <string name="gianuoc">3.500 đ/m3</string>
+    <string name="luuy">* Lưu ý không biết ghi gì để ở đây đi</string>
+    <string name="khoangthoigian">Khoảng thời gian</string>
+    <string name="hoadonthang">Hóa đơn tiền nhà tháng</string>
+    <string name="thongtin">Thông tin</string>
+    <string name="ngay">01-2024</string>
+    <string name="phong">Phòng</string>
+    <string name="chonphong">Chọn phòng</string>
+    <string name="ngaythanhtoan">Ngày thanh toán</string>
+    <string name="hanthanhtoan">Hạn thanh toán</string>
+
+    <string name="hopdong">Hợp đồng #8888</string>
+    <string name="thoihano">Từ 01-01-2014 đến [chưa xác định thời hạn]</string>
+    <string name="giathue">1.000.000 đ/tháng</string>
+    <string name="laphoadon">Lập hóa đơn</string>
+    <string name="ghichuchohoadon">Nhập ghi chú cho hóa đơn</string>
 </resources>

@@ -27,58 +27,58 @@
             android:name=".View.Load"
             android:exported="false" />
         <activity
-            android:name=".View.HoaDon"
+            android:name=".QLHoadon.HoaDon"
             android:exported="false" />
         <activity
-            android:name=".View.ChonPhong"
+            android:name=".QLHoadon.ChonPhong"
             android:exported="false" />
         <activity
-            android:name=".View.UpdatePhong"
+            android:name=".QLPhong.UpdatePhong"
             android:exported="false" />
         <activity
-            android:name=".View.DetailPhong"
+            android:name=".QLPhong.DetailPhong"
             android:exported="false" />
         <activity
-            android:name=".View.ThemHopdong"
+            android:name=".QLHopdong.ThemHopdong"
             android:exported="false" />
         <activity
-            android:name=".View.Hopdong"
+            android:name=".QLHopdong.Hopdong"
             android:exported="false" />
         <activity
-            android:name=".View.Themphong"
+            android:name=".QLPhong.Themphong"
             android:exported="false" />
         <activity
-            android:name=".View.Phong"
+            android:name=".QLPhong.Phong"
             android:exported="false" />
         <activity
-            android:name=".View.UpdateNguoithue"
+            android:name=".QLNguoithue.UpdateNguoithue"
             android:exported="false" />
         <activity
-            android:name=".View.DetailNguoithue"
+            android:name=".QLNguoithue.DetailNguoithue"
             android:exported="false" />
         <activity
-            android:name=".View.ThemNguoiThue"
+            android:name=".QLNguoithue.ThemNguoiThue"
             android:exported="false" />
         <activity
-            android:name=".View.NguoiThue"
+            android:name=".QLNguoithue.NguoiThue"
             android:exported="false" />
         <activity
-            android:name=".View.ThayDoiMatKhau"
+            android:name=".QLCaidat.ThayDoiMatKhau"
             android:exported="false" />
         <activity
-            android:name=".View.Setting"
+            android:name=".QLCaidat.Setting"
             android:exported="false" />
         <activity
-            android:name=".View.UpdateDichVu"
+            android:name=".QLDichvu.UpdateDichVu"
             android:exported="false" />
         <activity
-            android:name=".View.DetailActivity"
+            android:name=".QLDichvu.DetailDichvu"
             android:exported="false" />
         <activity
-            android:name=".View.ThemDichVu"
+            android:name=".QLDichvu.ThemDichVu"
             android:exported="false" />
         <activity
-            android:name=".View.DichVu"
+            android:name=".QLDichvu.DichVu"
             android:exported="false" />
         <activity
             android:name=".View.Signup"
@@ -90,7 +90,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".View.Laphoadon"
+            android:name=".QLHoadon.Laphoadon"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -10,6 +10,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.tt_app.Database.dbmanager;
 import com.example.tt_app.databinding.ActivitySignupBinding;
 
 import java.util.regex.Pattern;

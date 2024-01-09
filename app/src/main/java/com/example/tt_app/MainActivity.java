@@ -7,26 +7,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.tt_app.View.DichVu;
-import com.example.tt_app.View.Hopdong;
-import com.example.tt_app.View.Login;
-import com.example.tt_app.View.NguoiThue;
-import com.example.tt_app.View.Phong;
-import com.example.tt_app.View.Setting;
-import com.example.tt_app.View.dbmanager;
-
-
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+import com.example.tt_app.QLDichvu.DichVu;
+import com.example.tt_app.QLHopdong.Hopdong;
+import com.example.tt_app.QLNguoithue.NguoiThue;
+import com.example.tt_app.QLPhong.Phong;
+import com.example.tt_app.QLCaidat.Setting;
+import com.example.tt_app.Database.dbmanager;
 
 public class MainActivity extends AppCompatActivity {
     //khai bao bien

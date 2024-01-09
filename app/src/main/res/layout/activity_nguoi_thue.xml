@@ -6,7 +6,7 @@
     android:id="@+id/layout_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.NguoiThue">
+    tools:context=".QLNguoithue.NguoiThue">
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -1,8 +1,6 @@
 package com.example.tt_app.Adapter;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +14,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.tt_app.R;
-import com.example.tt_app.View.dbmanager;
-import com.example.tt_app.model.DataNguoithue;
-import com.squareup.picasso.Picasso;
+import com.example.tt_app.Database.dbmanager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DetailHinhanhAdapter extends RecyclerView.Adapter<DetailHinhanhAdapter.PhotoViewHolder>{

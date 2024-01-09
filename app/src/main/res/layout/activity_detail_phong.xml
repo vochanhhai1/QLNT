@@ -7,7 +7,7 @@
     android:id="@+id/layout_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.DetailPhong">
+    tools:context=".QLPhong.DetailPhong">
 
     <RelativeLayout
         android:layout_width="match_parent"

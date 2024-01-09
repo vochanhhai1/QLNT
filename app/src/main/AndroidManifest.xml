@@ -27,7 +27,7 @@
             android:name=".View.Load"
             android:exported="false" />
         <activity
-            android:name=".QLHoadon.HoaDon"
+            android:name=".QLHoadon.Laphoadon"
             android:exported="false" />
         <activity
             android:name=".QLHoadon.ChonPhong"
@@ -90,7 +90,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".QLHoadon.Laphoadon"
+            android:name=".QLHoadon.HoaDon"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -52,7 +52,6 @@ public class DetailPhong extends AppCompatActivity {
             lydo = bundle.getString("lydo");
         }
 
-       Toast.makeText(this,"ly do la"+mota,Toast.LENGTH_SHORT).show();
         DetailphongName.setText("Phòng " + phong);
         ViewpaperPhongAdapter viewpaperAdapter = new ViewpaperPhongAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(viewpaperAdapter);

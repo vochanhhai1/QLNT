@@ -42,7 +42,6 @@ public class AdapterPhong extends RecyclerView.Adapter<AdapterPhong.viewholder> 
     @Override
     public void onBindViewHolder(@NonNull AdapterPhong.viewholder holder, int position) {
         DataPhong dataPhong = dataholder.get(position);
-        Toast.makeText(context,"ly do la"+dataPhong.getLydo(),Toast.LENGTH_SHORT).show();
         holder.recPhong.setText("Phòng " + dataPhong.getPhong());
         Cursor cursor = new dbmanager(context).CountNguoiThueInPhong(dataPhong.getMaphong());
         if (cursor.moveToFirst()) {

@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.example.tt_app.R;
@@ -27,7 +29,13 @@ public class HoaDon extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         anhxaid();
-
+        fab_Hoadon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(getApplicationContext(), Laphoadon.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

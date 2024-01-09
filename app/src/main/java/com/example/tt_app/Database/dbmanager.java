@@ -28,7 +28,10 @@ public class dbmanager extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("create Table users(id_user integer primary key autoincrement,hovaten text,email TEXT, sodienthoai int,password TEXT)");
         sqLiteDatabase.execSQL("create Table tbl_phong(maphong integer primary key autoincrement,phong text,chiphithue integer,dientich integer,songuoithue integer,tiencoc integer,doituong text,anhphong text,gianuoc int,giadien int,mota text,lydo text)");
         sqLiteDatabase.execSQL("create Table tbl_nguoithue1(id_nguoithue integer primary key autoincrement,hovaten text,sodienthoai int,chonphong TEXT ,email TEXT,ngaysinh DATE,cmnd int,ngaycap DATE,noicap TEXT,diachi TEXT, anhcm TEXT,maphong integer, FOREIGN KEY(maphong) REFERENCES tbl_phong(maphong))");
-
+        sqLiteDatabase.execSQL("create Table tbl_hoadon(idhoadon Integer primary key autoincrement,id_nguoithue integer,maphong integer,id_dichvu integer,hoadonthang date, ngaythanhtoan date, hanthanhtoan date,giamgia integer,total double, ghichu text,ngayxuathoadon date,status integer" +
+                ",FOREIGN KEY(id_nguoithue) REFERENCES tbl_nguoithue1(id_nguoithue)" +
+                ",FOREIGN KEY(maphong) REFERENCES tbl_phong(maphong)" +
+                ",FOREIGN KEY(id_dichvu) REFERENCES tbl_phong(id_dichvu))");
     }
 
     @Override
@@ -38,6 +41,7 @@ public class dbmanager extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("drop Table if exists users");
         sqLiteDatabase.execSQL("drop Table if exists tbl_nguoithue1");
         sqLiteDatabase.execSQL("drop Table if exists tbl_phong");
+        sqLiteDatabase.execSQL("drop Table if exists tbl_hoadon");
         onCreate(sqLiteDatabase);
     }
 

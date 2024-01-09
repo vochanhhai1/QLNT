@@ -29,10 +29,14 @@
     <string name="chonphong">Chọn phòng</string>
     <string name="ngaythanhtoan">Ngày thanh toán</string>
     <string name="hanthanhtoan">Hạn thanh toán</string>
-
     <string name="hopdong">Hợp đồng #8888</string>
     <string name="thoihano">Từ 01-01-2014 đến [chưa xác định thời hạn]</string>
     <string name="giathue">1.000.000 đ/tháng</string>
     <string name="laphoadon">Lập hóa đơn</string>
     <string name="ghichuchohoadon">Nhập ghi chú cho hóa đơn</string>
+
+<!--   Item hoadon-->
+    <string name="sohoadon">#88888</string>
+    <string name="tiendichvu">Tiền dịch vụ</string>
+    <string name="tenphong">Tên phòng</string>
 </resources>

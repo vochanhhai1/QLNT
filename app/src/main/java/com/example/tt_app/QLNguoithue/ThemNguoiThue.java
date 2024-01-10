@@ -167,21 +167,18 @@ public class ThemNguoiThue extends AppCompatActivity {
 
             @Override
             public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-                // Xử lý ngày tháng năm đã chọn ở đây
                 String selectedDate = selectedDay + "-" + (selectedMonth + 1) + "-" + selectedYear;
-                // Hiển thị ngày tháng năm đã chọn
+
                 ngaycap.getEditText().setText(selectedDate);
             }
         }, year, month, day);
 
-        // Hiển thị hộp thoại chọn ngày tháng năm
         datePickerDialog.show();
     }
     private void checkPermissionAndReadContacts() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS}, READ_CONTACTS_PERMISSION_REQUEST);
         } else {
-            // Gọi phương thức để lấy dữ liệu danh bạ
             openContacts();
         }
     }

@@ -19,13 +19,13 @@ import java.util.regex.Pattern;
 public class Login extends AppCompatActivity {
     private static final Pattern PASSWORD_PATTERN =
             Pattern.compile("^" +
-                    "(?=.*[0-9])" +         //at least 1 digit
-                    "(?=.*[a-z])" +         //at least 1 lower case letter
-                    "(?=.*[A-Z])" +         //at least 1 upper case letter
-                    "(?=.*[a-zA-Z])" +      //any letter
-                    "(?=.*[@#$%^&+=])" +    //at least 1 special character
-                    "(?=\\S+$)" +           //no white spaces
-                    ".{6,}" +               //at least 6 characters
+                    "(?=.*[0-9])" +         //it nhat 1 so
+                    "(?=.*[a-z])" +
+                    "(?=.*[A-Z])" +         //it nhat 1 ky tu viet hoa
+                    "(?=.*[a-zA-Z])" +
+                    "(?=.*[@#$%^&+=])" +    //it nhat 1 ky tu dac biet
+                    "(?=\\S+$)" +           //khong khoang trang
+                    ".{6,}" +               //toi thieu 6 ky thu
                     "$");
     ActivityLoginBinding binding;
     dbmanager databaseHelper;
@@ -45,8 +45,8 @@ public class Login extends AppCompatActivity {
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+//                startActivity(intent);
 
                 if (!validateEmail()| !validatePassword()) {
                     return;

@@ -34,8 +34,7 @@ public class Laphoadon extends AppCompatActivity {
 
     public CardView cvHopdong;
     LinearLayout lltienphong, lldichvu;
-    Double tienphong;
-    Integer gianuoc,giadien;
+    Integer gianuoc,giadien,tienphong;
     CheckBox chkSelectedNuoc,chkSelectedDien;
     EditText edtNuocsocu,edtNuocsomoi,editDiensocu,edtDiensomoi;
     private int tienDien;

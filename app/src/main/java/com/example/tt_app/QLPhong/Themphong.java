@@ -42,8 +42,6 @@ public class Themphong extends AppCompatActivity {
     private PhotoAdapter photoAdapter;
     RadioGroup radioGroup;
     String selection = "";
-    String gianuoc="";
-    String giadien="";
     private List<DataClass> DichvutList;
     private DichvufromPhongAdapter dichvufromPhongAdapter;
     private String imagePaths;

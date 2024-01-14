@@ -69,7 +69,7 @@ public class DetailDichvu extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 builder.setTitle("Cảnh báo");
                 builder.setIcon(R.drawable.baseline_info_24);
                 builder.setMessage("Bạn có muốn xóa dịch vụ này không?");

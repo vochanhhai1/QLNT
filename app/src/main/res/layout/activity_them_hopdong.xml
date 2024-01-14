@@ -6,41 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".QLHopdong.ThemHopdong">
 
-    <LinearLayout
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent"/>
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/backround_hopdong"
-            android:padding="10dp"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:text="Thông tin"/>
-
-        <TextView
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đại diện cho thuê"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundColor="@color/white"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/daidien"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
 
 </ScrollView>

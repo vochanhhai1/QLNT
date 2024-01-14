@@ -1,9 +1,11 @@
 package com.example.tt_app.QLPhong.DetailPhongFragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,12 +20,15 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tt_app.QLNguoithue.DetailNguoithue;
+import com.example.tt_app.QLNguoithue.NguoiThue;
 import com.example.tt_app.QLPhong.Adapter.ThongtinAdapter;
 import com.example.tt_app.R;
 import com.example.tt_app.QLPhong.DetailPhong;
 import com.example.tt_app.QLPhong.Phong;
 import com.example.tt_app.Database.dbmanager;
 import com.example.tt_app.model.DataClass;
+import com.example.tt_app.model.DataNguoithue;
 import com.example.tt_app.model.DataPhong;
 
 import java.text.DecimalFormat;
@@ -95,10 +100,30 @@ public class ThongTin extends Fragment {
         detailXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbmanager db = new dbmanager(getActivity());
-                db.DeletePhong(id);
-                Intent intent = new Intent(getActivity(), Phong.class);
-                startActivity(intent);
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Không");
+                builder.setIcon(R.drawable.baseline_info_24);
+                builder.setMessage("Bạn có muốn xóa phòng này không?");
+                builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbmanager db = new dbmanager(getActivity());
+                        db.DeletePhong(id);
+                        Intent intent = new Intent(getActivity(), Phong.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog =builder.create();
+                dialog.show();
+
             }
         });
         return view;

@@ -2,9 +2,11 @@ package com.example.tt_app.QLDichvu;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -66,12 +68,29 @@ public class DetailDichvu extends AppCompatActivity{
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(), "dsadjahds", Toast.LENGTH_SHORT).show();
-                dbmanager db = new dbmanager(getApplicationContext());
-                db.DeleteDichvu(new DataClass(id_dichvu,null,null,null,null,null));
 
-                Intent intent = new Intent(DetailDichvu.this, DichVu.class);
-                startActivity(intent);
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setTitle("Không");
+                builder.setIcon(R.drawable.baseline_info_24);
+                builder.setMessage("Bạn có muốn xóa dịch vụ này không?");
+                builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbmanager db = new dbmanager(getApplicationContext());
+                        db.DeleteDichvu(new DataClass(id_dichvu,null,null,null,null,null));
+
+                        Intent intent = new Intent(DetailDichvu.this, DichVu.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog =builder.create();
+                dialog.show();
             }
         });
 

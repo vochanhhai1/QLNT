@@ -98,6 +98,14 @@ public class Themphong extends AppCompatActivity {
         btnThemphong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                if (!validateSoPhong() | !validateChiPhi() | !validateTiencoc()) {
+                    return;
+                }
+                String inputSophong = sophong.getEditText().getText().toString();
+                String inputhchiphi= chiphi.getEditText().getText().toString();
+                String inputhtiencoc= tiencoc.getEditText().getText().toString();
                 startActivity(new Intent(getApplicationContext(), Phong.class));
                 dbmanager db = new dbmanager(getApplicationContext());
 
@@ -123,12 +131,51 @@ public class Themphong extends AppCompatActivity {
                     RadioButton radioButton = findViewById(selectedId);
                     selection = radioButton.getText().toString();
                 }
-                db.insertDataPhong(sophong.getEditText().getText().toString(), Integer.valueOf(chiphi.getEditText().getText().toString()),
+                db.insertDataPhong(inputSophong, Integer.valueOf(inputhchiphi),
                         Integer.valueOf(dientich.getEditText().getText().toString()), Integer.valueOf(gioihan.getEditText().getText().toString()),
-                        Integer.valueOf(tiencoc.getEditText().getText().toString()), selection, imagePaths, mota.getText().toString(), lydo.getText().toString(),Integer.valueOf(datanuoc), Integer.valueOf(datadien));
+                        Integer.valueOf(inputhtiencoc), selection, imagePaths, mota.getText().toString(), lydo.getText().toString(),Integer.valueOf(datanuoc), Integer.valueOf(datadien));
             }
+
         });
 
+    }
+
+    private boolean validateSoPhong() {
+        String soPhongInput = sophong.getEditText().getText().toString().trim();
+
+        if (soPhongInput.isEmpty()) {
+            sophong.setError("Trường không thể trống\n");
+            return false;
+        } else if (soPhongInput.length() > 15) {
+            sophong.setError("Tên phòng quá dài");
+            return false;
+        } else {
+            sophong.setError(null);
+            return true;
+        }
+    }
+    private boolean validateChiPhi() {
+        String ChiphiInput = chiphi.getEditText().getText().toString().trim();
+
+        if (ChiphiInput.isEmpty()) {
+            chiphi.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            chiphi.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateTiencoc() {
+        String TienconInput = tiencoc.getEditText().getText().toString().trim();
+
+        if (TienconInput.isEmpty()) {
+            tiencoc.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            tiencoc.setError(null);
+            return true;
+        }
     }
     private void requestPermissions() {
         PermissionListener permissionlistener = new PermissionListener() {

@@ -103,7 +103,7 @@ public class ThongTin extends Fragment {
 
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Không");
+                builder.setTitle("Cảnh báo");
                 builder.setIcon(R.drawable.baseline_info_24);
                 builder.setMessage("Bạn có muốn xóa phòng này không?");
                 builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {

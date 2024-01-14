@@ -15,12 +15,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tt_app.QLDichvu.DetailDichvu;
-import com.example.tt_app.QLDichvu.DichVu;
 import com.example.tt_app.QLNguoithue.Adapter.UpdatePhotoAdapter;
 import com.example.tt_app.R;
 import com.example.tt_app.Database.dbmanager;
-import com.example.tt_app.model.DataClass;
 import com.example.tt_app.model.DataNguoithue;
 
 import java.util.ArrayList;
@@ -123,9 +120,8 @@ public class DetailNguoithue extends AppCompatActivity {
         detailXoa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                builder.setTitle("Không");
+                AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                builder.setTitle("Cảnh báo");
                 builder.setIcon(R.drawable.baseline_info_24);
                 builder.setMessage("Bạn có muốn xóa người thuê này không?");
                 builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {

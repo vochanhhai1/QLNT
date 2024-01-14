@@ -70,7 +70,7 @@ public class DetailDichvu extends AppCompatActivity{
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                builder.setTitle("Không");
+                builder.setTitle("Cảnh báo");
                 builder.setIcon(R.drawable.baseline_info_24);
                 builder.setMessage("Bạn có muốn xóa dịch vụ này không?");
                 builder.setPositiveButton("Có chứ", new DialogInterface.OnClickListener() {

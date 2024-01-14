@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -74,7 +75,15 @@ public class ThemDichVu extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), DichVu.class));
+
+
+                if (!validateTendichvu() | !validatedonvi() | !validatepriceDichvu()) {
+                    return;
+                }
+                String inputname = uploadTopic.getEditText().getText().toString();
+                String inputdonvi= uploadDonvido.getEditText().getText().toString();
+                String inputdichvu= uploadDichvu.getEditText().getText().toString();
+
                 //chuyen imageview sang byte[]
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) uploadImage.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
@@ -82,12 +91,49 @@ public class ThemDichVu extends AppCompatActivity {
                 bitmap.compress(Bitmap.CompressFormat.PNG,100,byteArray);
 
                 byte[] uploadhinhanh =byteArray.toByteArray();
+                dbmanager db = new dbmanager(getApplicationContext());
 
-                processinsert(uploadTopic.getEditText().getText().toString(), uploadDonvido.getEditText().getText().toString(), Integer.parseInt(uploadDichvu.getEditText().
-                        getText().toString()), uploadNote.getEditText().getText().toString(),uploadhinhanh);
+                db.insertData_dichvu(inputname, inputdonvi, Integer.parseInt(inputdichvu), uploadNote.getEditText().getText().toString(),uploadhinhanh);
+                startActivity(new Intent(getApplicationContext(), DichVu.class));
             }
         });
 
+    }
+    private boolean validateTendichvu() {
+        String usernameInput = uploadTopic.getEditText().getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            uploadTopic.setError("Trường không thể trống\n");
+            return false;
+        }else if (usernameInput.matches(".*\\d+.*")) {
+            uploadTopic.setError("Tên dịch vụ không thể chứa số");
+            return false;
+        } else {
+            uploadTopic.setError(null);
+            return true;
+        }
+    }
+    private boolean validatedonvi() {
+        String DonviInput = uploadDonvido.getEditText().getText().toString().trim();
+
+        if (DonviInput.isEmpty()) {
+            uploadDonvido.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            uploadDonvido.setError(null);
+            return true;
+        }
+    }
+    private boolean validatepriceDichvu() {
+        String DichvuInput = uploadDichvu.getEditText().getText().toString().trim();
+
+        if (DichvuInput.isEmpty()) {
+            uploadDichvu.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            uploadDichvu.setError(null);
+            return true;
+        }
     }
 
     private void AnhxaId() {
@@ -98,16 +144,6 @@ public class ThemDichVu extends AppCompatActivity {
         uploadNote = findViewById(R.id.uploadNote);
         saveButton = findViewById(R.id.saveButton);
     }
-
-    private void processinsert(String t, String d, int v, String n, byte[] h) {
-        String res = new dbmanager(this).insertData_dichvu(t, d, v, n,h);
-        uploadTopic.getEditText().setText("");
-        uploadDonvido.getEditText().setText("");
-        uploadDichvu.getEditText().setText("");
-        uploadNote.getEditText().setText("");
-        Toast.makeText(getApplicationContext(), res, Toast.LENGTH_SHORT).show();
-    }
-
 
     //quay về
     @Override

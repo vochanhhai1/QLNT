@@ -8,10 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.tt_app.Database.dbmanager;
 import com.example.tt_app.MainActivity;
+import com.example.tt_app.UserSessionManager;
 import com.example.tt_app.databinding.ActivityLoginBinding;
 
 import java.util.regex.Pattern;
@@ -29,7 +32,7 @@ public class Login extends AppCompatActivity {
                     "$");
     ActivityLoginBinding binding;
     dbmanager databaseHelper;
-
+    private UserSessionManager userSessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +43,33 @@ public class Login extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        databaseHelper = new dbmanager(this);
+        userSessionManager = new UserSessionManager(this);
 
+        if (userSessionManager.getRememberMe()) {
+            String savedUsername = userSessionManager.getUsername();
+            String savedPassword = userSessionManager.getPassword();
+            binding.loginEmail.getEditText().setText(savedUsername);
+            binding.loginPassword.getEditText().setText(savedPassword);
+            binding.rememberMeCheckBox.setChecked(true);
+        }
+        binding.rememberMeCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // Lưu thông tin đăng nhập vào SharedPreferences
+                    String username = binding.loginEmail.getEditText().getText().toString();
+                    String password = binding.loginPassword.getEditText().getText().toString();
+                    userSessionManager.saveCredentials(username, password);
+                    userSessionManager.saveRememberMe(true);
+                } else {
+                    // Xóa thông tin đăng nhập từ SharedPreferences
+                    userSessionManager.clearCredentials();
+                    userSessionManager.saveRememberMe(false);
+                }
+            }
+        });
+
+        databaseHelper = new dbmanager(this);
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -127,6 +127,14 @@ public class UpdateDichVu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(getApplicationContext(), "dsadjahds", Toast.LENGTH_SHORT).show();
+
+                if (!validateTendichvu() | !validatedonvi() | !validatepriceDichvu()) {
+                    return;
+                }
+                String inputname = tvUpdateTitle.getEditText().getText().toString();
+                String inputdonvi= tvUpdateDonvido.getEditText().getText().toString();
+                String inputdichvu= tvUpdateDichvu.getEditText().getText().toString();
+
                 //chuyen imageview sang byte[]
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) tvUpdateImage.getDrawable();
                 Bitmap bitmap = bitmapDrawable.getBitmap();
@@ -136,9 +144,8 @@ public class UpdateDichVu extends AppCompatActivity {
                 byte[] uploadhinhanh =byteArray.toByteArray();
 
                 dbmanager db = new dbmanager(getApplicationContext());
-                db.UpdateDichvu(new DataClass(id_updatedichvu,tvUpdateTitle.getEditText().getText().toString(),tvUpdateDonvido.getEditText().getText().toString()
-                        ,Integer.parseInt(tvUpdateDichvu.getEditText().
-                        getText().toString()),tvUpdateNote.getEditText().getText().toString(),uploadhinhanh));
+                db.UpdateDichvu(new DataClass(id_updatedichvu,inputname,inputdonvi
+                        ,Integer.parseInt(inputdichvu),tvUpdateNote.getEditText().getText().toString(),uploadhinhanh));
 
                 Intent intent = new Intent(UpdateDichVu.this, DichVu.class);
                 startActivity(intent);
@@ -147,6 +154,42 @@ public class UpdateDichVu extends AppCompatActivity {
 
     }
 
+    private boolean validateTendichvu() {
+        String usernameInput = tvUpdateTitle.getEditText().getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            tvUpdateTitle.setError("Trường không thể trống\n");
+            return false;
+        }else if (usernameInput.matches(".*\\d+.*")) {
+            tvUpdateTitle.setError("Tên dịch vụ không thể chứa số");
+            return false;
+        } else {
+            tvUpdateTitle.setError(null);
+            return true;
+        }
+    }
+    private boolean validatedonvi() {
+        String DonviInput = tvUpdateDonvido.getEditText().getText().toString().trim();
+
+        if (DonviInput.isEmpty()) {
+            tvUpdateDonvido.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            tvUpdateDonvido.setError(null);
+            return true;
+        }
+    }
+    private boolean validatepriceDichvu() {
+        String DichvuInput = tvUpdateDichvu.getEditText().getText().toString().trim();
+
+        if (DichvuInput.isEmpty()) {
+            tvUpdateDichvu.setError("Trường không thể trống\n");
+            return false;
+        } else {
+            tvUpdateDichvu.setError(null);
+            return true;
+        }
+    }
     private void Anhxa() {
         tvUpdateTitle=findViewById(R.id.updateTopic);
         tvUpdateNote=findViewById(R.id.updateNote);

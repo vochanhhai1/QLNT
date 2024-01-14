@@ -67,6 +67,7 @@ public class ThemNguoiThue extends AppCompatActivity {
     private static final int READ_CONTACTS_PERMISSION_REQUEST = 1;
     private List<String> items = new ArrayList<>();
     private ArrayAdapter<String> adapter;
+    private String imagePaths;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class ThemNguoiThue extends AppCompatActivity {
         rcfHinhcmnd.setAdapter(photoAdapter);
 
 
+
         //list chon phong
         Cursor cursor = new dbmanager(this).readTenPhong();
         if (cursor.moveToFirst()) {
@@ -101,6 +103,25 @@ public class ThemNguoiThue extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         chonphong.setAdapter(adapter);
 
+
+        btnThemnguoithue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!validateEmail() | !validateUsername()) {
+                    return;
+                }
+                String inputemail = email.getEditText().getText().toString();
+                String inputhovaten= hovaten.getEditText().getText().toString();
+
+                dbmanager db = new dbmanager(getApplicationContext());
+                startActivity(new Intent(getApplicationContext(), NguoiThue.class));
+
+                db.insertData_nguoithue(inputhovaten, Integer.parseInt(sodienthoai.getEditText().getText().toString()), chonphong.getText().toString(),inputemail, ngaysinh.getEditText().getText().toString()
+                        , Integer.parseInt(cmnd.getEditText().getText().toString()), ngaycap.getEditText().getText().toString(), noicap.getEditText().getText().toString(), diachi.getEditText().getText().toString(), imagePaths);
+
+            }
+        });
+
         imgAnhcmnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,6 +130,7 @@ public class ThemNguoiThue extends AppCompatActivity {
         });
 
         //date picker
+
 
         datapickerNgaysinh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -250,24 +272,8 @@ public class ThemNguoiThue extends AppCompatActivity {
                     String imagePath = uri.toString();
                     imagePathBuilder.append(imagePath).append(",");
                 }
-                String imagePaths = imagePathBuilder.toString();
+                imagePaths = imagePathBuilder.toString();
 
-                btnThemnguoithue.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (!validateEmail() | !validateUsername()) {
-                            return;
-                        }
-                        String inputemail = email.getEditText().getText().toString();
-                        String inputhovaten= hovaten.getEditText().getText().toString();
-
-                        dbmanager db = new dbmanager(getApplicationContext());
-                        startActivity(new Intent(getApplicationContext(), NguoiThue.class));
-                        db.insertData_nguoithue(inputhovaten, Integer.parseInt(sodienthoai.getEditText().getText().toString()), chonphong.getText().toString(),inputemail, ngaysinh.getEditText().getText().toString()
-                                , Integer.parseInt(cmnd.getEditText().getText().toString()), ngaycap.getEditText().getText().toString(), noicap.getEditText().getText().toString(), diachi.getEditText().getText().toString(), imagePaths);
-
-                    }
-                });
                 photoAdapter.setData(uriList);
             }
         };

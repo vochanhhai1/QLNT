@@ -46,6 +46,7 @@ public class Themphong extends AppCompatActivity {
     String giadien="";
     private List<DataClass> DichvutList;
     private DichvufromPhongAdapter dichvufromPhongAdapter;
+    private String imagePaths;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +95,39 @@ public class Themphong extends AppCompatActivity {
             }
         });
 
+        btnThemphong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Phong.class));
+                dbmanager db = new dbmanager(getApplicationContext());
 
+                String datanuoc = "";
+                String datadien = "";
+                List<DataClass> stList = dichvufromPhongAdapter.getStudentist();
+                for (int i = 0; i < stList.size(); i++) {
+                    DataClass singleStudent = stList.get(0);
+                    DataClass singleStudent1 = stList.get(1);
+                    if (singleStudent.isSelected() == true) {
+                        datanuoc = singleStudent.getUploadDichvu().toString();
+                    }else
+                        datanuoc= String.valueOf(0);
+                    if (singleStudent1.isSelected() == true)
+                    {
+                        datadien = singleStudent1.getUploadDichvu().toString();
+                    }else
+                        datadien= String.valueOf(0);
+                }
+
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId != -1) {
+                    RadioButton radioButton = findViewById(selectedId);
+                    selection = radioButton.getText().toString();
+                }
+                db.insertDataPhong(sophong.getEditText().getText().toString(), Integer.valueOf(chiphi.getEditText().getText().toString()),
+                        Integer.valueOf(dientich.getEditText().getText().toString()), Integer.valueOf(gioihan.getEditText().getText().toString()),
+                        Integer.valueOf(tiencoc.getEditText().getText().toString()), selection, imagePaths, mota.getText().toString(), lydo.getText().toString(),Integer.valueOf(datanuoc), Integer.valueOf(datadien));
+            }
+        });
 
     }
     private void requestPermissions() {
@@ -125,41 +158,9 @@ public class Themphong extends AppCompatActivity {
                     String imagePath = uri.toString();
                     imagePathBuilder.append(imagePath).append(",");
                 }
-                String imagePaths = imagePathBuilder.toString();
+                imagePaths = imagePathBuilder.toString();
 
-                btnThemphong.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(getApplicationContext(), Phong.class));
-                        dbmanager db = new dbmanager(getApplicationContext());
 
-                        String datanuoc = "";
-                        String datadien = "";
-                        List<DataClass> stList = dichvufromPhongAdapter.getStudentist();
-                        for (int i = 0; i < stList.size(); i++) {
-                            DataClass singleStudent = stList.get(0);
-                            DataClass singleStudent1 = stList.get(1);
-                            if (singleStudent.isSelected() == true) {
-                                datanuoc = singleStudent.getUploadDichvu().toString();
-                            }else
-                                datanuoc= String.valueOf(0);
-                            if (singleStudent1.isSelected() == true)
-                            {
-                                datadien = singleStudent1.getUploadDichvu().toString();
-                            }else
-                                datadien= String.valueOf(0);
-                        }
-
-                        int selectedId = radioGroup.getCheckedRadioButtonId();
-                            if (selectedId != -1) {
-                                RadioButton radioButton = findViewById(selectedId);
-                                selection = radioButton.getText().toString();
-                            }
-                            db.insertDataPhong(sophong.getEditText().getText().toString(), Integer.valueOf(chiphi.getEditText().getText().toString()),
-                                    Integer.valueOf(dientich.getEditText().getText().toString()), Integer.valueOf(gioihan.getEditText().getText().toString()),
-                                    Integer.valueOf(tiencoc.getEditText().getText().toString()), selection, imagePaths, mota.getText().toString(), lydo.getText().toString(),Integer.valueOf(datanuoc), Integer.valueOf(datadien));
-                    }
-                });
                 photoAdapter.setData(uriList);
             }
         };

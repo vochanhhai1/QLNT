@@ -53,6 +53,7 @@ public class UpdateNguoithue extends AppCompatActivity {
 
     private List<String> items = new ArrayList<>();
     private ArrayAdapter<String> adapter;
+    private String imagePaths;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -247,7 +248,7 @@ public class UpdateNguoithue extends AppCompatActivity {
                     String imagePath = uri.toString();
                     imagePathBuilder.append(imagePath).append(",");
                 }
-                String imagePaths = imagePathBuilder.toString();
+                imagePaths = imagePathBuilder.toString();
                 btnSua.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
